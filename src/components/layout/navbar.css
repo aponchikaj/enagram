@@ -1,0 +1,25 @@
+@keyframes navbarAnimation {
+    0%{
+        transform: translateY(-20vh);
+    }100%{
+        transform: translateX(0vh);
+    }
+}
+
+@keyframes sidebarAnimation {
+    0%{
+        transform: translateX(45vh);
+    }100%{
+        transform: translateX(0vh);
+    }
+}
+
+.navbar{
+    animation: navbarAnimation;
+    animation-duration: 0.5s;
+}
+
+.sidebar{
+    animation: sidebarAnimation;
+    animation-duration: 0.5s;
+}
