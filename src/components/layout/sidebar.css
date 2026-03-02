@@ -1,0 +1,25 @@
+@keyframes sidebarClosedAnimation {
+    0%{
+        transform: translateX(-30vh);
+    }100%{
+        transform: translateX(0vh);
+    }
+}
+
+@keyframes sidebarOpenAnimation {
+    0%{
+        transform: translateX(-25vh);
+    }100%{
+        transform: translateX(0vh);
+    }
+}
+
+.closed{
+    animation: sidebarClosedAnimation;
+    animation-duration: 0.5s;
+}
+
+.open{
+    animation:sidebarOpenAnimation;
+    animation-duration: 0.5s;
+}

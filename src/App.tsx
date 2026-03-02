@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import './App.css'
 import Navbar from './components/layout/navbar'
+import Sidemenu from './components/layout/sidebar'
 
 function App() {
 
@@ -12,6 +13,9 @@ function App() {
     <>
       <section className='w-auto h-auto lg:hidden'>
         <Navbar/>
+      </section>
+      <section className='w-auto h-auto md:hidden lg:flex'>
+        <Sidemenu/>
       </section>
     </>
   )
