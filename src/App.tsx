@@ -14,7 +14,7 @@ function App() {
       <section className='w-auto h-auto lg:hidden'>
         <Navbar/>
       </section>
-      <section className='w-auto h-auto md:hidden lg:flex'>
+      <section className='w-auto h-auto hidden lg:flex'>
         <Sidemenu/>
       </section>
     </>
