@@ -2,7 +2,12 @@ import { useState } from "react";
 import dropdownArrow from '../../assets/arrow-drop-down-line.png'
 import plusIcon from '../../assets/Plus, Add.png'
 
-export default function Menu(){
+type MenuProps = {
+  onReset: () => void,
+  diffRes: Array<{type: string, word: string}>
+}
+
+export default function Menu({ onReset, diffRes }: MenuProps){
 
     // languages section
     const [selectedLanguage,setSelectedLanguage] = useState("GEO")
@@ -10,9 +15,6 @@ export default function Menu(){
 
     // formatis shenarchunebis seqcia
     const [isFormat,setIsFormat] = useState(false)
-
-    // axlis gaxsnis seqcia
-    const [newWindowDisabled,setNewWindowDisabled] = useState(false);
 
     return(
         <main className='w-full h-auto lg:h-[10vh] p-[10px] flex flex-col items-center justify-center md:flex-row p-[10px]'>
@@ -58,8 +60,8 @@ export default function Menu(){
             {/* aq axlis damatebis button is seqcia */}
             <section className="py-[10px] w-full md:w-1/2 flex items-center justify-end">
               {
-                newWindowDisabled == true ? (
-                  <button className={`bg-[#4571E4] flex text-white cursor-pointer p-[5px] rounded-[10px] items-center justify-center gap-1 w-full md:w-auto`}><img src={plusIcon} alt="plus" className="w-[30px]" /><p className="text-sm">ახლის გახსნა</p></button>
+                diffRes.length > 0 ? (
+                  <button className={`bg-[#4571E4] flex text-white cursor-pointer p-[5px] rounded-[10px] items-center justify-center gap-1 w-full md:w-auto`} onClick={onReset}><img src={plusIcon} alt="plus" className="w-[30px]" /><p className="text-sm">ახლის გახსნა</p></button>
                 ) : (
                   <button className={`bg-[#383A4899] flex text-white cursor-pointer p-[5px] rounded-[10px] items-center justify-center gap-1 w-full md:w-auto `} disabled><img className="w-[30px]" src={plusIcon} alt="plus" /><p className="text-sm">ახლის გახსნა</p></button>
                 )

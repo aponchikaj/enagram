@@ -22,7 +22,7 @@ export default function Navbar(){
                             <button onClick={()=>setMenuMode(false)} className='text-white font-medium text-xl'>X</button>
                         </section>
                     </header>
-                    <section className='w-full p-[10px] flex items-center justify-center border-y border-[#EAEAEA] h-[10vh]'>
+                    <section className='w-full p-[10px] flex items-center justify-center border-y border-[#9EB9FF33] h-[10vh]'>
                         <button className='text-white font-medium cursor-pointer ease-in-out duration-200 hover:text-[#cccccc]'>ავტორიზაცია</button>
                     </section>
                     <section className='w-full p-[10px] flex items-center justify-center px-[10px]'>

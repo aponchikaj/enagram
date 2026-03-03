@@ -59,21 +59,22 @@ export default function Sidemenu(){
                 <h1 className="text-white font-medium">ENAGRAM</h1>
             </section>
 
-            <section className="w-full flex flex-col items-center justify-center p-[10px] pr-0 gap-2">
-                <ul className="flex flex-col items-center justify-center text-center gap-2 w-full pr-0">
-                    {
-                        menuButtons.map((d, i) => (
-                            <li key={i} className="w-full pr-0">
-                                <button onClick={() => setSelectedIndex(i)} className={`flex cursor-pointer items-center justify-start gap-2 w-full p-[10px] ${selectedIndex === i ? "bg-white rounded-l-[30px] " : "bg-transparent"}`}>
-                                <img src={d.icon} alt="icon" className="w-[30px]" />
-                                <p className={`font-medium ${selectedIndex === i ? "text-[#132450]" : "text-white"}`}>{d.title}</p>
-                                </button>
-                            </li>
-                        ))
-                    }
+            <section className="w-full flex flex-col items-center justify-center p-[10px] pr-0 gap-2 overflow-visible">
+                <ul className="flex flex-col items-center justify-center text-center w-full">
+                    {menuButtons.map((d, i) => (
+                        <li key={i} className="w-full">
+                        <button
+                            onClick={() => setSelectedIndex(i)}
+                            className={`flex cursor-pointer items-center justify-start gap-2 w-full px-[10px] py-[14px] transition-all ${selectedIndex === i ? "selected-btn" : "bg-transparent"}`}
+                        >
+                            <img src={d.icon} alt="icon" className="w-[30px]" />
+                            <p className={`font-medium ${selectedIndex === i ? "text-[#132450]" : "text-white"}`}>{d.title}</p>
+                        </button>
+                        </li>
+                    ))}
                 </ul>
             </section>
-            <section className="w-full p-[10px] flex items-center justify-around border-t border-[#EDEDED] mt-auto">
+            <section className="w-full p-[10px] flex items-center justify-around border-t border-[#9EB9FF33] mt-auto">
                 <section className="flex gap-2 items-center">
                     <img src={userLogo} alt="user" className="w-[30px]" />
                     <p className="text-white ">თამარ ონიანი</p>
