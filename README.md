@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+ENAGRAM — Text Comparison Tool
+A web application built as an interview project. Enagram is a Georgian-language productivity suite with a focus on text diffing — compare two texts side by side and instantly see what was added, removed, or kept the same.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
 
-Currently, two official plugins are available:
+Text Comparison — Paste two versions of a text and get a word-level diff powered by the Longest Common Subsequence (LCS) algorithm
+Visual Diff Output — Added words highlighted in green, removed words in red with strikethrough, unchanged text in neutral
+Diff Summary — Shows a count of added and removed words at a glance
+Animated Loading State — Progress bar with percentage feedback during diff computation
+Responsive Layout — Sidebar navigation on desktop, collapsible top navbar on mobile
+Language Selector — UI toggle between Georgian and English
+Format Preservation Toggle — Option to preserve original text formatting
+New Comparison Flow — Reset and start a fresh comparison with one click
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+Tech Stack
+LayerTechnologyFrameworkReact 18 + TypeScriptStylingTailwind CSSBundlerViteAlgorithmLCS (dynamic programming)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Project Structure
+src/
+├── assets/               # Icons and images
+├── components/
+│   ├── layout/
+│   │   ├── navbar.tsx    # Mobile top navigation bar
+│   │   ├── sidebar.tsx   # Desktop collapsible sidebar
+│   │   └── menu.tsx      # Top toolbar (language, format, reset)
+│   └── common/
+│       └── loading.tsx   # Animated progress bar component
+├── App.tsx               # Main app logic and diff orchestration
+├── App.css
+└── main.tsx
 
-## Expanding the ESLint configuration
+Getting Started
+Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Node.js v18+
+npm or yarn
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Installation
+bashgit clone https://github.com/aponchikaj/enagram.git
+cd enagram
+npm install
+Running locally
+bashnpm run dev
+Open http://localhost:5173 in your browser.
+Building for production
+bashnpm run build
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+How the Diff Works
+The comparison uses a classic Longest Common Subsequence dynamic programming approach:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Both texts are split into word arrays
+An m × n DP table is built to find the longest matching word sequence
+The table is backtracked to label each word as same, added, or removed
+Results are rendered inline with color-coded highlights
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Time complexity: O(m × n) where m and n are word counts of each text.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Author
+Built by Lazare Mirziashvili as part of a frontend interview project.
