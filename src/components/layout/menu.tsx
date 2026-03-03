@@ -23,7 +23,7 @@ export default function Menu(){
               {/* language section */}
               <section className='w-full md:w-auto p-[5px] flex gap-2 flex-col items-center justify-center relative'>
                 
-                <div className='w-full flex items-center justify-between border border-[#E0E0E0] p-[5px] px-[10px] rounded-[7px] cursor-pointer relative cursor-pointer py-[5px]' onClick={()=>setLanguageOpen(languageOpen == true ? false : true)}>
+                <div className='w-full flex items-center justify-between border border-[#E0E0E0] p-[5px] px-[10px] rounded-[7px] cursor-pointer cursor-pointer py-[5px] ' onClick={()=>setLanguageOpen(languageOpen == true ? false : true)}>
 
                   <section className='px-[5px]'>
                     <p className='font-light'>{selectedLanguage == "GEO" ? "ქართული" : "ინგლისური"}</p>

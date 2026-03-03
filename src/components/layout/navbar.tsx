@@ -11,7 +11,7 @@ export default function Navbar(){
 
     if(menuMode){
        return(
-            <nav className='w-[35dvh] h-screen sidebar flex flex-col bg-[#132450] absolute top-0 right-0 justify-between'>
+            <nav className='w-[35dvh] h-[100dvh] sidebar flex flex-col bg-[#132450] absolute top-0 right-0 justify-between z-50'>
                 <section className='w-auto h-auto'>
                     <header className='w-full p-[10px] flex items-center justify-between'>
                         <section className='flex items-center justify-center px-[10px] gap-1'>
