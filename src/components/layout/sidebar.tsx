@@ -73,7 +73,7 @@ export default function Sidemenu(){
                     }
                 </ul>
             </section>
-            <section className="w-full p-[10px] flex items-center justify-around border-t border-white mt-auto">
+            <section className="w-full p-[10px] flex items-center justify-around border-t border-[#EDEDED] mt-auto">
                 <section className="flex gap-2 items-center">
                     <img src={userLogo} alt="user" className="w-[30px]" />
                     <p className="text-white ">თამარ ონიანი</p>
